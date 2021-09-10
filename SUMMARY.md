@@ -17,8 +17,32 @@ In order to get Uniswap’s analytics I used The Graph which is an indexing prot
 <img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">
 https://info.uniswap.org/home
 
+UNISWAP FUNCTION IN GOOGLE SHEETS:
+Returns new tradable pairs on Uniswap, giving constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions .
+![UNISWAP](https://user-images.githubusercontent.com/53000607/132866211-131dc269-638f-4328-ad7d-f8ef8d9f3651.gif)
+
+For example, if I want to get the new Uniswap pairs where:
+the pool was launched in the last 7 Days
+the daily Volume is greater than $20'000
+the Liquidity is above $30'000
+and there has been more than1'000 Transactions since the launch
+The formula becomes:
+=UNISWAP(7,20000,30000,1000)
+
+@param {days} the number of Days since the pair is active
+@param {volume} the minimum Volume ($)
+@param {liquidity} the minimum Liquidity ($)
+@param {tx_count} the number of Transactions existant since creation
 
 
+* @return a table (see GIF above)with all new tradable pairs on Uniswap and their number of Days since Active, the Volume ($), the Liquidity ($), the number of Transactions
+
+More indicators for scanning ?
+There are plenty more functionalities that can be added through the TheGraph API. Don’t hesitate to have a look at all available end points like:
+
+totalSupply
+untrackedVolumeUSD
+liquidityProviderCount
 
 <img width="588" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png">
 <img width="632" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png">
