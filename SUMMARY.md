@@ -1,6 +1,26 @@
+Introduction
 What is Uniswap?
 Uniswap is a decentralized exchange protocol built on Ethereum. To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
 Traders can exchange Ethereum tokens (ERC20) on Uniswap without having to trust anyone with their funds. Meanwhile, anyone can lend their crypto to special reserves called liquidity pools. In exchange for providing money to these pools, they earn fees. https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work
+
+Prerequisites
+This tutorial assumes that you have completed the Secret Learn Pathway already, as we will be building upon that foundation of knowledge and skill. If you have not already done so, you would be wise to take the time to complete the Pathway. We will start with the same project folder as in section 5 of the Pathway.
+Requirements
+The latest version of NodeJS installed (use of nvm, the node version manager, is encouraged for Web 3 developers)
+A code editor like VSCode, Theia, Atom, etc.
+Required JavaScript packages –
+secretjs - for the Secret Network JavaScript API
+dotenv - for working with environment variables
+It is not required to install docker and the Rust toolchain yet, as we are using a pre-deployed contract in this case. A future installment in this series will guide you through writing and compiling your own variant of a snip721 token.
+
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
 This is how Uniswap’s Decentralized Exchange looks like:
 ![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
