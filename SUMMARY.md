@@ -12,14 +12,12 @@
 ##### The latest version of NodeJS installed (use of nvm, the node version manager, is encouraged for Web 3 developers)
 * A code editor like VSCode, Theia, Atom, etc.
 * Required JavaScript packages –
-  * secretjs - for the Secret Network JavaScript API
-  * dotenv - for working with environment variables
+  * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API
+  * importJson.gs - for working with JSON objects in Google Sheets
 It is not required to install docker and the Rust toolchain yet, as we are using a pre-deployed contract in this case. A future installment in this series will guide you through writing and compiling your own variant of a snip721 token.
 
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
-
+<div style="background-color: rgb(50, 50, 50);">
 ```javascript
 /*====================================================================================================================================*
   CryptoTools Google Sheet Feed by Eloise1988
@@ -84,6 +82,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 ```
+</div>
 
 #### This is how Uniswap’s Decentralized Exchange looks like:
 ![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
