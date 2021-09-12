@@ -34,6 +34,9 @@ It is not required to install docker and the Rust toolchain yet, as we are using
   Changelog:
   
   2.1.0   Creation Uniswap function  *====================================================================================================================================*/
+  
+  ```
+```
 /**UNISWAP
  * Returns new tradable pairs on Uniswap, giving constraints on the number of Days Active, the Volume ($), the Liquidity ($), the number of Transactions 
  *
@@ -51,7 +54,9 @@ It is not required to install docker and the Rust toolchain yet, as we are using
  *
  * @return a table with all new tradable pairs on Uniswap and their number of Days since Active, the Volume ($), the Liquidity ($), the number of Transactions 
  **/
-
+  ```
+  
+```
 async function UNISWAP(days,volume,liquidity,tx_count){
   Utilities.sleep(Math.random() * 100)
   
