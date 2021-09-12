@@ -85,7 +85,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 #### This is how Uniswap’s Decentralized Exchange looks like:
-![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
+![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png =500*200)
 ![uni1](https://user-images.githubusercontent.com/53000607/132863640-4889463d-0e54-4a9e-b7ca-3a71017f8fc7.png)
 
 #### Some of the CryptoTools data analytics users have been interested in finding a way to get the latest tokens trading on Uniswap, most probably as a trading analytics tool.
