@@ -6,18 +6,18 @@
 ##### Traders can exchange Ethereum tokens (ERC20) on Uniswap without having to trust anyone with their funds. Meanwhile, anyone can lend their crypto to special reserves called liquidity pools. In exchange for providing money to these pools, they earn fees. 
 
 ### Prerequisites
-##### This tutorial assumes that you have completed the Secret Learn Pathway already, as we will be building upon that foundation of knowledge and skill. If you have not already done so, you would be wise to take the time to complete the Pathway. We will start with the same project folder as in section 5 of the Pathway.
-
+##### This tutorial assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transfor the GraphQL code into Javascript that is the Official Google Sheet program language. 
 ### Requirements
 ##### The latest version of NodeJS installed (use of nvm, the node version manager, is encouraged for Web 3 developers)
-* A code editor like VSCode, Theia, Atom, etc.
-* Required JavaScript packages –
+* A Postman platform that makes API development easier.
+* It is better to have some beginner javascript knowledge so that you can understand and read the code as well as modify some parts of it for personalization 
+* Code :
   * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API
-  * importJson.gs - for working with JSON objects in Google Sheets
-It is not required to install docker and the Rust toolchain yet, as we are using a pre-deployed contract in this case. A future installment in this series will guide you through writing and compiling your own variant of a snip721 token.
+  * importJson.gs - for working with JSON objects in Google Sheets (User-Interface)
 
 
-<div style="background-color: rgb(50, 50, 50);">
+
+
 ```javascript
 /*====================================================================================================================================*
   CryptoTools Google Sheet Feed by Eloise1988
@@ -82,7 +82,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 ```
-</div>
+
 
 #### This is how Uniswap’s Decentralized Exchange looks like:
 ![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
