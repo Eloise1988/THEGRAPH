@@ -1,6 +1,9 @@
-#Introduction
-##What is Uniswap?
+# Introduction
+## What is Uniswap?
 ## [Uniswap] (https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work) is a decentralized exchange protocol built on Ethereum. To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
+http://github.com - automatic!
+[GitHub](http://github.com)
+
 Traders can exchange Ethereum tokens (ERC20) on Uniswap without having to trust anyone with their funds. Meanwhile, anyone can lend their crypto to special reserves called liquidity pools. In exchange for providing money to these pools, they earn fees. 
 
 Prerequisites
