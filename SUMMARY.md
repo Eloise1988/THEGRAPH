@@ -4,17 +4,15 @@
 ##### This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
 
 ### Prerequisites
-##### For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transfor the GraphQL code into Javascript that is the Official Google Sheet program language. 
+##### For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transform GraphQL code into Javascript which is the Official Google Sheet programming language. 
 
-* GraphQL & Javascript knowledge are a plus Everything can be written directly with the help of Postman and The Graph's website.
-* A Postman platform that makes API development easier.
-* It is better to have some beginner javascript knowledge so that you can understand and read the code as well as modify some parts of it for personalization. 
+* GraphQL & Javascript knowledge are a plus. Code can be written directly with the help of Postman and The Graph's website.
+* Postman's software makes API development easier.
 * Code :
   * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API (later explained in the tutorial)
   * importJson.gs - for working with JSON objects in Google Sheets User-Interface (later explained in the tutorial)
 
 
-Eventually, the space craft of the “Old Empire” forces and The Domain engaged each other in open combat in the space of the solar system.
 ### First, what is Uniswap?
 ##### [Uniswap](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work) is a decentralized exchange protocol built on Ethereum. To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
 
