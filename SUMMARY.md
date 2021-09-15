@@ -1,24 +1,38 @@
+# Scan the latest pairs added to Uniswap V3 in Google Sheets using The Graph
+
 # Introduction
+##### This tutorial is to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
+
+### Prerequisites
+##### For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transfor the GraphQL code into Javascript that is the Official Google Sheet program language. 
+
+* GraphQL & Javascript knowledge are a plus Everything can be written directly with the help of Postman and The Graph's website.
+* A Postman platform that makes API development easier.
+* It is better to have some beginner javascript knowledge so that you can understand and read the code as well as modify some parts of it for personalization. 
+* Code :
+  * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API (later explained in the tutorial)
+  * importJson.gs - for working with JSON objects in Google Sheets User-Interface (later explained in the tutorial)
+
+
+Eventually, the space craft of the “Old Empire” forces and The Domain engaged each other in open combat in the space of the solar system.
 ### What is Uniswap?
 ##### [Uniswap](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work) is a decentralized exchange protocol built on Ethereum. To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
 
 
 ##### Traders can exchange Ethereum tokens (ERC20) on Uniswap without having to trust anyone with their funds. Meanwhile, anyone can lend their crypto to special reserves called liquidity pools. In exchange for providing money to these pools, they earn fees. 
 
-### Prerequisites
-##### This tutorial assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transfor the GraphQL code into Javascript that is the Official Google Sheet program language. 
-### Requirements
-##### The latest version of NodeJS installed (use of nvm, the node version manager, is encouraged for Web 3 developers)
-* A Postman platform that makes API development easier.
-* It is better to have some beginner javascript knowledge so that you can understand and read the code as well as modify some parts of it for personalization 
-* Code :
-  * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API
-  * importJson.gs - for working with JSON objects in Google Sheets (User-Interface)
 
 
+### Getting familiar with TheGraph and GraphQL queries
+### Testing model & translating the query into javascript using Postman
+### Adapting the code to Google Sheet and creating a custom function
+### Google Sheet Formula
 
 
 ```javascript
+/**
+* @OnlyCurrentDoc
+*/
 /*====================================================================================================================================*
   CryptoTools Google Sheet Feed by Eloise1988
   ====================================================================================================================================
@@ -85,7 +99,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 #### This is how Uniswap’s Decentralized Exchange looks like:
-![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png =250x)
+![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
 ![uni1](https://user-images.githubusercontent.com/53000607/132863640-4889463d-0e54-4a9e-b7ca-3a71017f8fc7.png)
 
 #### Some of the CryptoTools data analytics users have been interested in finding a way to get the latest tokens trading on Uniswap, most probably as a trading analytics tool.
@@ -118,13 +132,26 @@ The formula becomes:
 
 
 * @return a table (see GIF above)with all new tradable pairs on Uniswap and their number of Days since Active, the Volume ($), the Liquidity ($), the number of Transactions
-
-More indicators for scanning ?
 There are plenty more functionalities that can be added through the TheGraph API. Don’t hesitate to have a look at all available end points like:
 
-totalSupply
-untrackedVolumeUSD
-liquidityProviderCount
+* totalSupply
+* untrackedVolumeUSD
+* liquidityProviderCount
+* and other ...
+
+# Conclusion
+A user-friendly interface that interacts with The Graph protocols
+They will learn how to make data requests, write models, interact with the blockchain data
+
+
+###[Manual authorization scopes for Sheets](https://developers.google.com/apps-script/guides/services/authorization)
+When building an add-on or other script that uses the Spreadsheet service, you can force the authorization dialog to ask only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets, documents, or forms. To do so, include the following JsDoc annotation in a file-level comment:
+```javascript
+/**
+* @OnlyCurrentDoc
+*/
+```
+
 
 <img width="588" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png">
 <img width="632" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png">
