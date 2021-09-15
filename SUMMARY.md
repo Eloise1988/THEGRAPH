@@ -1,7 +1,7 @@
 # Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets 
 
 # Introduction
-##### This tutorial is to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
+##### This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
 
 ### Prerequisites
 ##### For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transfor the GraphQL code into Javascript that is the Official Google Sheet program language. 
@@ -15,9 +15,8 @@
 
 
 Eventually, the space craft of the “Old Empire” forces and The Domain engaged each other in open combat in the space of the solar system.
-### What is Uniswap?
+### First, what is Uniswap?
 ##### [Uniswap](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work) is a decentralized exchange protocol built on Ethereum. To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
-
 
 ##### Traders can exchange Ethereum tokens (ERC20) on Uniswap without having to trust anyone with their funds. Meanwhile, anyone can lend their crypto to special reserves called liquidity pools. In exchange for providing money to these pools, they earn fees. 
 
@@ -25,7 +24,7 @@ Eventually, the space craft of the “Old Empire” forces and The Domain engage
 
 ### Getting familiar with TheGraph and GraphQL queries
 ### Testing model & translating the query into javascript using Postman
-### Adapting the code to Google Sheet and creating a custom function
+### Connecting the model to Google Sheet
 ### Google Sheet Formula
 
 
