@@ -1,5 +1,7 @@
 # Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets 
 <img width="1381" alt="gs_uni" src="https://user-images.githubusercontent.com/53000607/133581515-37656860-4604-4caa-8e65-38d6bf9f0815.png">
+[![UNISWAP](https://user-images.githubusercontent.com/53000607/133595220-6e918166-cfc9-4d9c-9b5b-5bc4395852ce.gif)](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
+
 
 # Introduction
 ##### This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
