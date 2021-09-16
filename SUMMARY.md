@@ -29,9 +29,13 @@
 
 ##### [<img width="500" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">](https://thegraph.com/legacy-explorer/) [<img width="500" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
 
-
-### Testing model & translating the query into javascript using Postman
+#### Building the GraphQL query
 ##### [GraphQL](https://en.wikipedia.org/wiki/GraphQL) is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015. 
+<img width="1232" alt="std_graph_query" src="https://user-images.githubusercontent.com/53000607/133599485-8dd9fa85-f20c-4c29-9f04-cd843d593511.png">
+<img width="622" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
+
+#####
+### Testing model & translating the query into javascript using Postman
 
 
 [<img width="45%" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
