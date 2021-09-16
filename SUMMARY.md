@@ -1,5 +1,6 @@
 # Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets 
 [<img width="1381" alt="gs_uni" src="https://user-images.githubusercontent.com/53000607/133581515-37656860-4604-4caa-8e65-38d6bf9f0815.png">](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
+[<img width="1381" alt="gif_uni" src="https://user-images.githubusercontent.com/53000607/133595220-6e918166-cfc9-4d9c-9b5b-5bc4395852ce.gif">](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
 ![UNISWAP](https://user-images.githubusercontent.com/53000607/133595220-6e918166-cfc9-4d9c-9b5b-5bc4395852ce.gif) 
 
 
@@ -38,7 +39,7 @@
 
 [<img width="45%" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
 
-The Uniswap Info website is also feeding with GraphQL queries from the same subgraph.
+##### The Uniswap Info website is also feeding with GraphQL queries from the same subgraph.
 [<img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">](https://info.uniswap.org/home)
 
 ### Connecting the model to Google Sheet
