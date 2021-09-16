@@ -40,6 +40,22 @@
 For our purpose, we will just need to adjust a little the query to request pool pairs. We will be interested in filtering by constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions.
 ##### [<img width="630" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)  <img width="370" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
 
+When you look at the pool parameters, you will find the following correspondence needed to build our constraints:
+ * Number of Days -> createdAtTimestamp
+ * Volume ($) -> volumeUSD
+ * Liquidity ($) -> totalValueLockedUSD
+ * Number of Transactions -> txCount
+
+Now instead of using the standart (first:5) occurences, we need the build the GraphQL constraint with the above constraints. In order to do that we need to build a "where" clause where we tell the matching engine that we are looking for pool pairs created after a certain date (timestamp), with liquidity, volumes and nb transactions all greater than amounts defined by the user. This is how the constraint clause will look like:
+
+```graphql
+where: {
+      volumeUSD_gte:100
+      totalValueLockedUSD_gte: 100
+      txCount_gte:100
+      createdAtTimestamp_gte: 1625575864
+    } 
+```
 ```graphql
 query{
   
@@ -158,12 +174,12 @@ Returns new tradable pairs on Uniswap,
 ![UNISWAP](https://user-images.githubusercontent.com/53000607/132866211-131dc269-638f-4328-ad7d-f8ef8d9f3651.gif)
 
 For example, if I want to get the new Uniswap pairs where:
-the pool was launched in the last 7 Days
+the pool was launched in the last 5 Days
 the daily Volume is greater than $20'000
 the Liquidity is above $30'000
-and there has been more than1'000 Transactions since the launch
+and there has been more than 100 Transactions since the launch
 The formula becomes:
-=UNISWAP(7,20000,30000,1000)
+=UNISWAP(5,20000,30000,100)
 
 @param {days} the number of Days since the pair is active
 @param {volume} the minimum Volume ($)
