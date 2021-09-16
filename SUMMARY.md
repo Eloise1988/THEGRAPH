@@ -11,7 +11,7 @@
 * Postman's software makes API development easier.
 * Code :
   * uniswap.gs - for retrieving Uniswap's latest pair through The Graph API (later explained in the tutorial)
-  * importJson.gs - for working with JSON objects in Google Sheets User-Interface (later explained in the tutorial)
+  * importJson.gs - for working with JSON objects in Google Sheets (later explained in the tutorial)
 
 
 ### First, what is Uniswap?
