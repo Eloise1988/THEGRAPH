@@ -22,14 +22,15 @@
 
 
 ### Getting familiar with TheGraph and GraphQL queries
-https://thegraph.com/legacy-explorer/
+
+##### [<img width="45%" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">](https://thegraph.com/legacy-explorer/) [<img width="45%" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
 <img width="45%" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">
-<img width="45%" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">
-https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3
+
+
 #### In order to get Uniswap’s analytics I used The Graph which is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can use, build and publish open APIs, called subgraphs, making data easily accessible.
 <img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">
 https://info.uniswap.org/home<img width="1324" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580545-064d237e-cc92-4b53-b91d-8ebf36e121df.png">
-<img width="1324" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">
+
 
 
 
