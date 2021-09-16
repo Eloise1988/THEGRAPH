@@ -31,8 +31,10 @@
 
 #### Building the GraphQL query
 ##### [GraphQL](https://en.wikipedia.org/wiki/GraphQL) is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015. 
-<img width="1232" alt="std_graph_query" src="https://user-images.githubusercontent.com/53000607/133599485-8dd9fa85-f20c-4c29-9f04-cd843d593511.png">
-<img width="622" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
+
+##### In playgroud mode, there is an example of a GraphQL query. We will just need to play around with it to get pool pairs. In our case, we are interested in filtering by constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions.
+<img width="500" alt="std_graph_query" src="https://user-images.githubusercontent.com/53000607/133599485-8dd9fa85-f20c-4c29-9f04-cd843d593511.png">
+<img width="500" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
 
 #####
 ### Testing model & translating the query into javascript using Postman
@@ -125,7 +127,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 UNISWAP FUNCTION IN GOOGLE SHEETS:
-Returns new tradable pairs on Uniswap, giving constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions .
+Returns new tradable pairs on Uniswap, 
 ![UNISWAP](https://user-images.githubusercontent.com/53000607/132866211-131dc269-638f-4328-ad7d-f8ef8d9f3651.gif)
 
 For example, if I want to get the new Uniswap pairs where:
