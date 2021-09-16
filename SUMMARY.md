@@ -2,6 +2,7 @@
 
 # Introduction
 ##### This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.
+<img width="1324" alt="Screen Shot 2021-09-16 at 10 42 20" src="https://user-images.githubusercontent.com/53000607/133580414-6809c3cc-0bfc-48ef-b182-7c4b5cb40b13.png">
 
 ### Prerequisites
 ##### For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test The Graph request models and transform GraphQL code into Javascript which is the Official Google Sheet programming language. 
@@ -27,7 +28,9 @@ https://thegraph.com/legacy-explorer/
 https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3
 #### In order to get Uniswap’s analytics I used The Graph which is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can use, build and publish open APIs, called subgraphs, making data easily accessible.
 <img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">
-https://info.uniswap.org/home
+https://info.uniswap.org/home<img width="1324" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580545-064d237e-cc92-4b53-b91d-8ebf36e121df.png">
+<img width="1324" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">
+
 
 
 ### Testing model & translating the query into javascript using Postman
