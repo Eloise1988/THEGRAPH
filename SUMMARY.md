@@ -21,6 +21,15 @@
 
 
 ### Getting familiar with TheGraph and GraphQL queries
+https://thegraph.com/legacy-explorer/
+<img width="45%" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">
+<img width="45%" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">
+https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3
+#### In order to get Uniswap’s analytics I used The Graph which is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can use, build and publish open APIs, called subgraphs, making data easily accessible.
+<img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">
+https://info.uniswap.org/home
+
+
 ### Testing model & translating the query into javascript using Postman
 ### Connecting the model to Google Sheet
 ### Google Sheet Formula
@@ -96,19 +105,12 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 
 
-![uni2](https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png)
-![uni1](https://user-images.githubusercontent.com/53000607/132863640-4889463d-0e54-4a9e-b7ca-3a71017f8fc7.png)
 
-#### Some of the CryptoTools data analytics users have been interested in finding a way to get the latest tokens trading on Uniswap, most probably as a trading analytics tool.
-#### As a result, I’ve created a Google Sheet templates that helps you filter new tradable coins.
+
+
 ### [ACCESS LIVE TEMPLATE SHEET HERE](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
 #### The sheet returns all new tradable pairs on Uniswap, giving constraints on the Number of Days the pair has been active, the Volume ($), the Liquidity ($), and the number of Transactions.
-<img width="1346" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">
-<img width="1346" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">
-https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3
-#### In order to get Uniswap’s analytics I used The Graph which is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can use, build and publish open APIs, called subgraphs, making data easily accessible.
-<img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">
-https://info.uniswap.org/home
+
 
 UNISWAP FUNCTION IN GOOGLE SHEETS:
 Returns new tradable pairs on Uniswap, giving constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions .
