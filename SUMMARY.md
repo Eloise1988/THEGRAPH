@@ -64,8 +64,8 @@ where: {
 query{
   
   pools( where: {
-      volumeUSD_gte:100
-      totalValueLockedUSD_gte: 100
+      volumeUSD_gte:20000
+      totalValueLockedUSD_gte: 30000
       txCount_gte:100
       createdAtTimestamp_gte: 1625575864
     } 
@@ -91,14 +91,17 @@ query{
 
 ### Testing model & translating the query into javascript using Postman
 ##### [Download Postman](https://www.postman.com/downloads/)
-##### Once you download Postman and open a new window
-<img width="1437" alt="postmanclean" src="https://user-images.githubusercontent.com/53000607/133645104-1099b76f-41cd-4637-94e9-79b965dcce92.png">
-1. In the URL box, insert the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
-2. Change the GET in a POST request
-3. Copy/paste the above GraphQL query in body and select GraphQL
-4. Click on send
+##### Once you download Postman, you can open a new window like shown below:
+##### <img width="1437" alt="postmanclean" src="https://user-images.githubusercontent.com/53000607/133645104-1099b76f-41cd-4637-94e9-79b965dcce92.png">
+##### To get the data in Postman, you will need to:
+1. Insert in the URL box the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
+2. Change the GET into a POST request
+3. Copy/paste the above GraphQL query in Body and select GraphQL
+4. Click Send
 
 You should get the same JSON table as on TheGraph.
+<img width="1100" alt="potman_query" src="https://user-images.githubusercontent.com/53000607/133658202-670210a1-4509-4754-a164-1e22514d4594.png">
+
 
 ### Connecting the model to Google Sheet
 ### Google Sheet Formula
@@ -223,5 +226,3 @@ When building an add-on or other script that uses the Spreadsheet service, you c
 
 #### [<img width="32%" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png"> <img width="32%" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png"> <img width="32%" alt="goog_auth_3" src="https://user-images.githubusercontent.com/53000607/132861821-62440a1f-99b3-4891-80a0-3f6b2c6365d3.png"> <img width="32%" alt="goog_auth_2" src="https://user-images.githubusercontent.com/53000607/132861825-6da9adbc-6bf2-4733-bf9b-4d5476b8f19f.png"> <img width="32%" alt="goog_auth" src="https://user-images.githubusercontent.com/53000607/132861831-8dbba6ee-617f-44ec-938c-7a922b498f76.png"> <img width="32%" alt="postman" src="https://user-images.githubusercontent.com/53000607/132861836-9fe4bd08-9ad1-42ee-893d-70c89d9d9dd8.png">](https://developers.google.com/apps-script/guides/services/authorization)
 
-Picture en trop
-[<img width="1381" alt="gs_uni" src="https://user-images.githubusercontent.com/53000607/133581515-37656860-4604-4caa-8e65-38d6bf9f0815.png">](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
