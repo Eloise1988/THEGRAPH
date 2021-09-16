@@ -46,8 +46,7 @@
 ##### * Liquidity ($) -> totalValueLockedUSD
 ##### * Number of Transactions -> txCount
 
-##### Now instead of using the standard (first:5) clause, we will need to build our GraphQL constraint there with the above variables. 
-##### In order to do that we need to build a "where" clause where we tell the matching engine that we are looking for pool pairs created after a certain date (timestamp), with liquidity, volumes and number of transactions all greater than the amounts defined by the user. 
+##### Now instead of using the standard (first:5) clause, we will need to build our GraphQL constraint there with the above variables. In order to do that we need to build a "where" clause where we tell the matching engine that we are looking for pool pairs created after a certain date (timestamp), with liquidity, volumes and number of transactions all greater than the amounts defined by the user. 
 
 ##### In GraphQL to signal you need an amount greater than, you need to add ___gte__ at the end of your variable.
 
@@ -60,6 +59,10 @@ where: {
       createdAtTimestamp_gte: 1625575864
     } 
 ```
+
+##### Subsequently in order to create the rest of the query, you need to display the symbols of the pair's tokens, prices, id (contract address), volume, liquidity, number of transactions and timestamp.
+
+#### This is how the final graphQL query looks:
 ```graphql
 query{
   
@@ -86,11 +89,18 @@ query{
     txCount
   }}
 ```
+##### You can replace the example query with this new query and press play in the playground. You should see the results.
+
 ### Testing model & translating the query into javascript using Postman
+##### [Download Postman](https://www.postman.com/downloads/)
+##### Once you download Postman and open a new window
+<img width="1437" alt="postmanclean" src="https://user-images.githubusercontent.com/53000607/133645104-1099b76f-41cd-4637-94e9-79b965dcce92.png">
+1. In the URL box, insert the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
+2. Change the GET in a POST request
+3. Copy/paste the above GraphQL query in body and select GraphQL
+4. Click on send
 
-
-##### The Uniswap Info website is also feeding with GraphQL queries from the same subgraph.
-[<img width="1346" alt="uniswap-info" src="https://user-images.githubusercontent.com/53000607/132865907-1d48eec7-e688-4843-9db7-b97279951ab2.png">](https://info.uniswap.org/home)
+You should get the same JSON table as on TheGraph.
 
 ### Connecting the model to Google Sheet
 ### Google Sheet Formula
