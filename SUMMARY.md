@@ -46,12 +46,13 @@ When you look at the pool parameters, you will find the following correspondence
  * Liquidity ($) -> totalValueLockedUSD
  * Number of Transactions -> txCount
 
-Now instead of using the standart (first:5) occurences, we need the build the GraphQL constraint with the above constraints. In order to do that we need to build a "where" clause where we tell the matching engine that we are looking for pool pairs created after a certain date (timestamp), with liquidity, volumes and nb transactions all greater than amounts defined by the user. This is how the constraint clause will look like:
+Now instead of using the standard (first:5) clause, we will need to build our GraphQL constraint there with the above variables. In order to do that we need to build a "where" clause where we tell the matching engine that we are looking for pool pairs created after a certain date (timestamp), with liquidity, volumes and number of transactions all greater than the amounts defined by the user. In GraphQL to signal you need an amount greater than, you need to add _gte at the end of your variable.
+This is how the constraint clause will look like this.
 
 ```graphql
 where: {
-      volumeUSD_gte:100
-      totalValueLockedUSD_gte: 100
+      volumeUSD_gte:20000
+      totalValueLockedUSD_gte:30000
       txCount_gte:100
       createdAtTimestamp_gte: 1625575864
     } 
