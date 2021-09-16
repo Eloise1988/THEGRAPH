@@ -27,7 +27,7 @@
 #### Finding Uniswap V3 subgraph on Thegraph
 ##### In this tutorial, we will be focusing on getting blockchain data on Version 3 of Uniswap. All you need to do is to search in TheGraph's explorer bar for Uniswap V3. The following picture shows you what TheGraph looks like and which subgraph we will be using.
 
-##### [<img width="500" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">](https://thegraph.com/legacy-explorer/) [<img width="500" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
+##### [<img width="490" alt="thegraph" src="https://user-images.githubusercontent.com/53000607/133580577-56cecc0a-79c3-473d-83f9-6e9420ec6afd.png">](https://thegraph.com/legacy-explorer/) [<img width="510" alt="thegraph_uni2" src="https://user-images.githubusercontent.com/53000607/132865398-6227fe0c-d447-408d-9e67-5767d8125744.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)
 
 #### Building the GraphQL query
 ##### [GraphQL](https://en.wikipedia.org/wiki/GraphQL) is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015. 
