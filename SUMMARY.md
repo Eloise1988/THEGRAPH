@@ -193,8 +193,14 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 ```
 
-
-
+### [Manual authorization scopes for Sheets](https://developers.google.com/apps-script/guides/services/authorization)
+When building an add-on or other script that uses the Spreadsheet service, you can force the authorization dialog to ask only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets, documents, or forms. To do so, include the following JsDoc annotation in a file-level comment:
+```javascript
+/**
+* @OnlyCurrentDoc
+*/
+```
+#### [<img width="32%" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png"> <img width="32%" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png"> <img width="32%" alt="goog_auth_3" src="https://user-images.githubusercontent.com/53000607/132861821-62440a1f-99b3-4891-80a0-3f6b2c6365d3.png"> <img width="32%" alt="goog_auth_2" src="https://user-images.githubusercontent.com/53000607/132861825-6da9adbc-6bf2-4733-bf9b-4d5476b8f19f.png"> <img width="32%" alt="goog_auth" src="https://user-images.githubusercontent.com/53000607/132861831-8dbba6ee-617f-44ec-938c-7a922b498f76.png"> <img width="32%" alt="postman" src="https://user-images.githubusercontent.com/53000607/132861836-9fe4bd08-9ad1-42ee-893d-70c89d9d9dd8.png">](https://developers.google.com/apps-script/guides/services/authorization)
 
 
 
@@ -233,14 +239,8 @@ A user-friendly interface that interacts with The Graph protocols
 They will learn how to make data requests, write models, interact with the blockchain data
 
 
-###[Manual authorization scopes for Sheets](https://developers.google.com/apps-script/guides/services/authorization)
-When building an add-on or other script that uses the Spreadsheet service, you can force the authorization dialog to ask only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets, documents, or forms. To do so, include the following JsDoc annotation in a file-level comment:
-```javascript
-/**
-* @OnlyCurrentDoc
-*/
-```
 
 
-#### [<img width="32%" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png"> <img width="32%" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png"> <img width="32%" alt="goog_auth_3" src="https://user-images.githubusercontent.com/53000607/132861821-62440a1f-99b3-4891-80a0-3f6b2c6365d3.png"> <img width="32%" alt="goog_auth_2" src="https://user-images.githubusercontent.com/53000607/132861825-6da9adbc-6bf2-4733-bf9b-4d5476b8f19f.png"> <img width="32%" alt="goog_auth" src="https://user-images.githubusercontent.com/53000607/132861831-8dbba6ee-617f-44ec-938c-7a922b498f76.png"> <img width="32%" alt="postman" src="https://user-images.githubusercontent.com/53000607/132861836-9fe4bd08-9ad1-42ee-893d-70c89d9d9dd8.png">](https://developers.google.com/apps-script/guides/services/authorization)
+
+
 
