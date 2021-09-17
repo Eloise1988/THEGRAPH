@@ -103,7 +103,25 @@ You should get the same JSON table as on TheGraph.
 <img width="1100" alt="potman_query" src="https://user-images.githubusercontent.com/53000607/133658202-670210a1-4509-4754-a164-1e22514d4594.png">
 
 
-### Connecting the model to Google Sheet
+### Connecting the model through Google Sheet
+Once you confirmed that the query is functionning in Postman, you can transform the code into a Javascript request (for Google Sheet) using the Code button underneath the Svae button.
+
+<img width="977" alt="javascript_postman" src="https://user-images.githubusercontent.com/53000607/133802683-9462b554-06f8-4d52-9533-35491102f006.png">
+
+
+#### This is how the important part to save for the App Script in Google:
+```graphql
+var graphql = JSON.stringify({
+  query: "query{\n  \n  pools( where: {\n      volumeUSD_gte:20000\n      totalValueLockedUSD_gte: 30000\n      txCount_gte:100\n      createdAtTimestamp_gte: 1625575864\n    } \n		) {\n  \n    token0 {\n      symbol\n    }\n    token0Price\n    token1 {\n      symbol\n    }\n    token1Price\n    id\n    volumeUSD\n    createdAtTimestamp\n    totalValueLockedUSD\n    txCount\n  }}",
+  variables: {}
+})
+var requestOptions = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: graphql,
+  redirect: 'follow'
+};
+```
 ### Google Sheet Formula
 
 
