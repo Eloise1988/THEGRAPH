@@ -124,7 +124,11 @@ var requestOptions = {
 ```
 ### Google Sheet Formula
 
-
+How to :
+Open a Google sheet where you wish to use CRYPTOTOOL’s functions
+![gs1](https://user-images.githubusercontent.com/53000607/133906614-c8cf356d-6fa2-4440-8e10-1b42b9e5f540.png)
+2. Go to Tools › Script editor
+![gs2](https://user-images.githubusercontent.com/53000607/133906613-2aba9315-8328-47c3-b0d6-0e17f98f50cc.png) ![gs3](https://user-images.githubusercontent.com/53000607/133906612-438908c5-2e53-4dbb-aadf-86ebd61e8ffd.png)
 ```javascript
 /**
 * @OnlyCurrentDoc
