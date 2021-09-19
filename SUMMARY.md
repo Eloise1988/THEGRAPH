@@ -196,8 +196,8 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
 ### [HERE IS THE ACCESS TO THE LIVE TEMPLATE SHEET](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
 
-##### For example, if I want to get the new Uniswap pairs where the pool was launched in the last 5 Days, the daily Volume is greater than $20'000, the Liquidity is above $30'000 and there has been more than 100 Transactions since the launch. The formula is:
-##### =UNISWAP(5,20000,30000,100)
+##### For example, if I want to get the new Uniswap pairs where the pool was launched in the last 2 days, the daily Volume is greater than $1'000, the Liquidity is above $10'000 and there has been more than 10 Transactions since the launch. The formula is:
+##### =UNISWAP(2,1000,10000,10)
 
 
 #####  which returns a table (see GIF above) with all new tradable pairs on Uniswap and their number of days since active, volume ($), liquidity ($), the number of transactions, prices and coin symbols. There are plenty more functionalities that can be added through the TheGraph API.
@@ -208,8 +208,8 @@ A user-friendly interface that interacts with The Graph protocols
 They will learn how to make data requests, write models, interact with the blockchain data
 
 ### About me
-##### I am working on gathering on-chain as well as off-chain blockchain data leading to the creation of CRYPTOTOOLS which helps users import and value their crypto portfolio in Google Sheets. I publish all of my work in [Medium](https://eloise88.medium.com/) and hope you can benefit from it. And for developers who wish to directly check my work on [Github](https://github.com/Eloise1988), I've built the [COINGECKO](https://github.com/Eloise1988/COINGECKO) repository for pricing as well as the [CRYPTOBALANCE](https://github.com/Eloise1988/CRYPTOBALANCE) repository for balances, staking, dex prices etc..
-##### If you find errors, please do not hesitate to let me know. Feedback is very welcomed. A [telegram chat](https://t.me/TheCryptoCurious) is also available for support. If this project adds any value to you and/or are looking for personalized coding on your Google Sheets, don’t hesitate to leave a message.
+##### I gather cryptocurrency data to help users import and value their crypto portfolio in Google Sheets. I publish all of my work in [Medium](https://eloise88.medium.com/) and hope you can benefit from it. And for developers who wish to directly check my work on [Github](https://github.com/Eloise1988), I've built the [COINGECKO](https://github.com/Eloise1988/COINGECKO) repository for pricing as well as the [CRYPTOBALANCE](https://github.com/Eloise1988/CRYPTOBALANCE) repository for balances, staking, dex prices etc..
+##### If you find errors, please do not hesitate to let me know. Feedback is very welcomed. A [TELEGRAM chat](https://t.me/TheCryptoCurious) is also available for support. If this project adds any value to you and/or are looking for personalized coding on your Google Sheets, don’t hesitate to leave a message.
 ##### Thank you so much for investing your time in reading this article. Take care of yourself & your family in these challenging times!
 
 
