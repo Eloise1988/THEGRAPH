@@ -94,22 +94,22 @@ query{
 ##### Once you download Postman, you can open a new window like shown below:
 ##### <img width="1437" alt="postmanclean" src="https://user-images.githubusercontent.com/53000607/133645104-1099b76f-41cd-4637-94e9-79b965dcce92.png">
 ##### To get the data in Postman, you will need to:
-1. Insert in the URL box the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
-2. Change the GET into a POST request
-3. Copy/paste the above GraphQL query in Body and select GraphQL
-4. Click Send
+##### 1. Insert in the URL box the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
+##### 2. Change the GET into a POST request
+##### 3. Copy/paste the above GraphQL query in Body and select GraphQL
+##### 4. Click Send
 
-You should get the same JSON table as on TheGraph.
-<img width="1100" alt="potman_query" src="https://user-images.githubusercontent.com/53000607/133658202-670210a1-4509-4754-a164-1e22514d4594.png">
+##### You should get the same JSON table as on TheGraph.
+##### <img width="1100" alt="potman_query" src="https://user-images.githubusercontent.com/53000607/133658202-670210a1-4509-4754-a164-1e22514d4594.png">
 
 
 ### Connecting the model through Google Sheet
-Once you confirmed that the query is functionning in Postman, you can transform the code into a Javascript Fetch request (for Google Sheet) using the Code button underneath the Save button.
+##### Once you confirmed that the query is functionning in Postman, you can transform the code into a Javascript Fetch request (for Google Sheet) using the Code button underneath the Save button.
 
-<img width="977" alt="javascript_postman" src="https://user-images.githubusercontent.com/53000607/133802683-9462b554-06f8-4d52-9533-35491102f006.png">
+##### <img width="977" alt="javascript_postman" src="https://user-images.githubusercontent.com/53000607/133802683-9462b554-06f8-4d52-9533-35491102f006.png">
 
 
-#### This is the important part to save for the App Script in Google:
+#### The important part to save for the App Script in Google is:
 ```graphql
 var graphql = JSON.stringify({
   query: "query{\n  \n  pools( where: {\n      volumeUSD_gte:20000\n      totalValueLockedUSD_gte: 30000\n      txCount_gte:100\n      createdAtTimestamp_gte: 1625575864\n    } \n		) {\n  \n    token0 {\n      symbol\n    }\n    token0Price\n    token1 {\n      symbol\n    }\n    token1Price\n    id\n    volumeUSD\n    createdAtTimestamp\n    totalValueLockedUSD\n    txCount\n  }}",
@@ -122,66 +122,42 @@ var requestOptions = {
   redirect: 'follow'
 };
 ```
-### Google Sheet Formula
+### Building the javascript function in Sheets
+##### We want to have floating parameters in the function in order to filter new pairs based on our different parameters:
 
-How to :
-Open a Google sheet where you wish to use CRYPTOTOOL’s functions
-![gs1](https://user-images.githubusercontent.com/53000607/133906614-c8cf356d-6fa2-4440-8e10-1b42b9e5f540.png)
-2. Go to Tools › Script editor
-![gs2](https://user-images.githubusercontent.com/53000607/133906613-2aba9315-8328-47c3-b0d6-0e17f98f50cc.png) ![gs3](https://user-images.githubusercontent.com/53000607/133906612-438908c5-2e53-4dbb-aadf-86ebd61e8ffd.png)
+##### * Number of days since the pair was created : [createdAtTimestamp_gte]
+##### * Minimum volume in USD threshold : [volumeUSD_gte]
+##### * Minimum liquidity in USD threshold : [totalValueLockedUSD_gte]
+##### * Minimum number of transactions since creation date : [txCount_gte]
+
+##### Let's define an asynchroneous function with those 4 parameters as inputs
 ```javascript
+async function UNISWAP(days,volume,liquidity,tx_count){
+}
+```
+
+##### [1] In order to make the TheGraph post request, we need a threshold date (createdAtTimestamp_gte) in UNIX timestamp format. We can compute it as shown in the below code.
+##### [2] Then we just need to change the fixed parameters from the model with the floating parameters (making sure they are in string) in the variable graphql. 
+##### [3] Afterwards we can copy/paste the requestOptions variable from Postman
+##### [4] Finally we call the URLfetch using the ImportJSONAdvanced function that was created for Google sheets (by Brad Jasper and Trevor Lohrbeer version 1.5), using the API endpoint from the Uniswap V3 subgraph, and the requestOptions as well as the standard parameters of the ImportJSONAdvanced function. 
+```javascript
+// Security Only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets
 /**
 * @OnlyCurrentDoc
 */
-/*====================================================================================================================================*
-  CryptoTools Google Sheet Feed by Eloise1988
-  ====================================================================================================================================
-  Version:      1.0.0
-  Project Page: https://github.com/Eloise1988/THEGRAPH
-  Copyright:    (c) 2021 by Eloise1988
-                
-  License:      GNU License
-               
-  ------------------------------------------------------------------------------------------------------------------------------------
-  A library for importing Uniswap's V3 latest pairs using TheGraph:
 
-     UNISWAP               For use by end users to retrieve Uniswap's V3 latest pairs
-    
-  For bug reports see https://github.com/Eloise1988/TEHGRAPH/issues
-
-  ------------------------------------------------------------------------------------------------------------------------------------
-  Changelog:
-  
-  2.1.0   Creation Uniswap function  *====================================================================================================================================*/
-  
-
-/**UNISWAP
- * Returns new tradable pairs on Uniswap, giving constraints on the number of Days Active, the Volume ($), the Liquidity ($), the number of Transactions 
- *
- * By default, data gets transformed into a table 
- * For example:
- *
- * =UNISWAP(5,10000,10000,100)
- *
- * @param {days}                    the number of Days since the pair is active
- * @param {volume}                  the minimum Volume ($)
- * @param {liquidity}               the minimum Liquidity ($)
- * @param {tx_count}                the number of Transactions existant since creation
- * @param {parseOptions}           an optional fixed cell for automatic refresh of the data
- * @customfunction
- *
- * @return a table with all new tradable pairs on Uniswap and their number of Days since Active, the Volume ($), the Liquidity ($), the number of Transactions 
- **/
- 
 async function UNISWAP(days,volume,liquidity,tx_count){
-  Utilities.sleep(Math.random() * 100)
-  
-      unix_day=Math.floor(Date.now() / 1000-parseFloat(days)*86400);
-      
-      var graphql = JSON.stringify({
+
+	// [1] Computing the threshold date (createdAtTimestamp_gte) in UNIX timestamp format
+	unix_day=Math.floor(Date.now() / 1000-parseFloat(days)*86400);
+	
+	// [2] Changing the fixed parameters from the model with the floating parameters (making sure they are in string format)
+	var graphql = JSON.stringify({
       query: "query{\n  \n  pools( where: {\n      volumeUSD_gte:"+String(volume)+"\n      totalValueLockedUSD_gte: "+String(liquidity)+"\n      txCount_gte:"+String(tx_count)+"\n      createdAtTimestamp_gte: "+String(unix_day)+"\n    } \n		) {\n  \n    token0 {\n      symbol\n    }\n    token0Price\n    token1 {\n      symbol\n    }\n    token1Price\n    id\n    volumeUSD\n    createdAtTimestamp\n    totalValueLockedUSD\n    txCount\n  }}",
         variables: {}
       })
+
+      // [3] Copy/Pasting the requestOptions variable from Postman javascript code
       var requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -189,60 +165,52 @@ async function UNISWAP(days,volume,liquidity,tx_count){
         redirect: 'follow'
       };
 
-      return ImportJSONAdvanced('https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',requestOptions,'','noInherit',includeXPath_,defaultTransform_);      
-
-    
+      // [4] Calling the URLfetch using the ImportJSONAdvanced function (by Brad Jasper and Trevor Lohrbeer version 1.5) that was created for Google sheets
+      return ImportJSONAdvanced('https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',requestOptions,'','noInherit',includeXPath_,defaultTransform_);
 }
-
-
 ```
+#### Copy/Pasting the code in Google Sheet
+##### Open a Google sheet where you wish to use the Uniswap function -> Go to Tools › Script editor
+##### <img width="330" alt="gs1" src="https://user-images.githubusercontent.com/53000607/133906614-c8cf356d-6fa2-4440-8e10-1b42b9e5f540.png"><img width="350" alt="gs2" src="https://user-images.githubusercontent.com/53000607/133906613-2aba9315-8328-47c3-b0d6-0e17f98f50cc.png"><img width="330" alt="gs3" src="https://user-images.githubusercontent.com/53000607/133906612-438908c5-2e53-4dbb-aadf-86ebd61e8ffd.png">
 
-### [Manual authorization scopes for Sheets](https://developers.google.com/apps-script/guides/services/authorization)
-When building an add-on or other script that uses the Spreadsheet service, you can force the authorization dialog to ask only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets, documents, or forms. To do so, include the following JsDoc annotation in a file-level comment:
+##### Replace the empty function with the code we just created NB: I added the description of the function in the [Github raw code version 1.0](https://raw.githubusercontent.com/Eloise1988/datahub-learn/master/network-documentation/the-graph/uniswap_new_pairs.gs) 
+##### [<img width="900" alt="uniswapgs" src="https://user-images.githubusercontent.com/53000607/133931771-5a5d71a4-623f-4aa9-9ce5-6714d7e4a84f.png">](https://raw.githubusercontent.com/Eloise1988/datahub-learn/master/network-documentation/the-graph/uniswap_new_pairs.gs)
+#####  Add the [ImportJSON script by Brad Jasper and Trevor Lohrbeer version 1.5](https://raw.githubusercontent.com/Eloise1988/ImportJSON/master/ImportJSON.gs)
+##### [<img width="900" alt="imporjson" src="https://user-images.githubusercontent.com/53000607/133931777-50713ca0-b096-474e-93f6-1d8e93a31441.png">](https://raw.githubusercontent.com/Eloise1988/ImportJSON/master/ImportJSON.gs)
+
+
+
+##### Once you save the code, you need to activate the [Manual authorization scopes for Sheets](https://developers.google.com/apps-script/guides/services/authorization)
+##### When building an add-on or other script that uses the Spreadsheet service, you can force the authorization dialog to ask only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets, documents, or forms. To do so, include the following JsDoc annotation in a file-level comment:
 ```javascript
 /**
 * @OnlyCurrentDoc
 */
 ```
+##### When running the code, you will probably be asked to give permission to the code. Here are the steps:
 #### [<img width="32%" alt="goog_auth_5" src="https://user-images.githubusercontent.com/53000607/132861811-0d7c4712-8f8c-4f4b-892c-2779a4035036.png"> <img width="32%" alt="goog_auth_4" src="https://user-images.githubusercontent.com/53000607/132861818-d9d927d6-c230-4924-9c35-1bf528afbe72.png"> <img width="32%" alt="goog_auth_3" src="https://user-images.githubusercontent.com/53000607/132861821-62440a1f-99b3-4891-80a0-3f6b2c6365d3.png"> <img width="32%" alt="goog_auth_2" src="https://user-images.githubusercontent.com/53000607/132861825-6da9adbc-6bf2-4733-bf9b-4d5476b8f19f.png"> <img width="32%" alt="goog_auth" src="https://user-images.githubusercontent.com/53000607/132861831-8dbba6ee-617f-44ec-938c-7a922b498f76.png"> <img width="32%" alt="postman" src="https://user-images.githubusercontent.com/53000607/132861836-9fe4bd08-9ad1-42ee-893d-70c89d9d9dd8.png">](https://developers.google.com/apps-script/guides/services/authorization)
 
+### Uniswap Formula
+##### Once all of these steps are done, you should be able to request the newest tradable pairs on Uniswap, giving constraints on the Number of Days the pair has been active, the Volume ($), the Liquidity ($), and the number of Transactions.
+##### [<img width="1381" alt="gif_uni" src="https://user-images.githubusercontent.com/53000607/133595220-6e918166-cfc9-4d9c-9b5b-5bc4395852ce.gif">](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
+
+### [HERE IS THE ACCESS TO THE LIVE TEMPLATE SHEET](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
+
+##### For example, if I want to get the new Uniswap pairs where the pool was launched in the last 5 Days, the daily Volume is greater than $20'000, the Liquidity is above $30'000 and there has been more than 100 Transactions since the launch. The formula is:
+##### =UNISWAP(5,20000,30000,100)
 
 
-### [ACCESS LIVE TEMPLATE SHEET HERE](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
-#### The sheet returns all new tradable pairs on Uniswap, giving constraints on the Number of Days the pair has been active, the Volume ($), the Liquidity ($), and the number of Transactions.
+#####  which returns a table (see GIF above) with all new tradable pairs on Uniswap and their number of days since active, volume ($), liquidity ($), the number of transactions, prices and coin symbols. There are plenty more functionalities that can be added through the TheGraph API.
 
-
-UNISWAP FUNCTION IN GOOGLE SHEETS:
-Returns new tradable pairs on Uniswap, 
-![UNISWAP](https://user-images.githubusercontent.com/53000607/132866211-131dc269-638f-4328-ad7d-f8ef8d9f3651.gif)
-
-For example, if I want to get the new Uniswap pairs where:
-the pool was launched in the last 5 Days
-the daily Volume is greater than $20'000
-the Liquidity is above $30'000
-and there has been more than 100 Transactions since the launch
-The formula becomes:
-=UNISWAP(5,20000,30000,100)
-
-@param {days} the number of Days since the pair is active
-@param {volume} the minimum Volume ($)
-@param {liquidity} the minimum Liquidity ($)
-@param {tx_count} the number of Transactions existant since creation
-
-
-* @return a table (see GIF above)with all new tradable pairs on Uniswap and their number of Days since Active, the Volume ($), the Liquidity ($), the number of Transactions
-There are plenty more functionalities that can be added through the TheGraph API. Don’t hesitate to have a look at all available end points like:
-
-* totalSupply
-* untrackedVolumeUSD
-* liquidityProviderCount
-* and other ...
 
 # Conclusion
 A user-friendly interface that interacts with The Graph protocols
 They will learn how to make data requests, write models, interact with the blockchain data
 
-
+### About me
+##### I am working on gathering on-chain as well as off-chain blockchain data leading to the creation of CRYPTOTOOLS which helps users import and value their crypto portfolio in Google Sheets. I publish all of my work in [Medium](https://eloise88.medium.com/) and hope you can benefit from it. And for developers who wish to directly check my work on [Github](https://github.com/Eloise1988), I've built the [COINGECKO](https://github.com/Eloise1988/COINGECKO) repository for pricing as well as the [CRYPTOBALANCE](https://github.com/Eloise1988/CRYPTOBALANCE) repository for balances, staking, dex prices etc..
+##### If you find errors, please do not hesitate to let me know. Feedback is very welcomed. A [telegram chat](https://t.me/TheCryptoCurious) is also available for support. If this project adds any value to you and/or are looking for personalized coding on your Google Sheets, don’t hesitate to leave a message.
+##### Thank you so much for investing your time in reading this article. Take care of yourself & your family in these challenging times!
 
 
 
