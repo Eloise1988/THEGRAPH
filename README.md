@@ -2,7 +2,7 @@
 [<img width="1381" alt="gif_uni" src="https://user-images.githubusercontent.com/53000607/133595220-6e918166-cfc9-4d9c-9b5b-5bc4395852ce.gif">](https://docs.google.com/spreadsheets/d/1tME9nMh79KzZP4Wmld7lezom6je4BOw_0T9ABf5GKXE/edit?usp=sharing)
 
 # Introduction
-This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect onchain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll **learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.**
+This tutorial is built to help non-technical people get a sense of how to interact with TheGraph and connect on-chain data into Google Sheets. I've been working on gathering crypto data in Google Sheets for a couple of years now and I found that sheets is a useful interface when filtering for new listed pairs on decentralized exchanges. In this tutorial you'll **learn how to find a UniswapV3 subgraph on The Graph, make a GraphQL request, translate the query in Javascript (Google Sheet's programming language) using Postman, and finally retrieve the pairs in the Sheet with a user-defined formula.**
 
 ### Prerequisites
 For beginners with basic coding skills. This training assumes that you have a Gmail/Google account as we will be building upon Google Sheets. Also it would help if you have access to Postman to get an easier view on how to test a GraphQL request from TheGraph and transform it into Javascript code which is  the Official programming language of Google Sheet . 
@@ -21,9 +21,8 @@ For beginners with basic coding skills. This training assumes that you have a Gm
 
 [<img src=https://user-images.githubusercontent.com/53000607/132863640-4889463d-0e54-4a9e-b7ca-3a71017f8fc7.png width="450">](https://uniswap.exchange/swap)   <img src=https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png width="550">    
 
-
 ### Getting familiar with TheGraph and GraphQL queries
-[The Graph](https://thegraph.com/) is a **decentralized protocol for indexing and querying data** from blockchains. It is able to query networks like Ethereum and since Uniswap is built on Ethereum, it will allow us to get its onchain data. 
+[The Graph](https://thegraph.com/) is a **decentralized protocol for indexing and querying data** from blockchains. It is able to query networks like Ethereum and since Uniswap is built on Ethereum, it will allow us to get its on-chain data. 
  
 #### Finding Uniswap V3 subgraph on Thegraph
 In this tutorial, we will be focusing on getting blockchain data on Version 3 of Uniswap. All you need to do is to search in TheGraph's explorer bar for Uniswap V3. The following picture shows you what TheGraph looks like and which subgraph we will be using:
@@ -49,7 +48,7 @@ Now instead of using the standard (first:5) clause, we will need to build our Gr
 
 In GraphQL to signal you need an amount **greater than,** you need to add ___gte__ at the end of your variable.
 
-#### This is an example of how the constraint clause will look with theoritical values:
+#### This is an example of how the constraint clause will look with theoretical values:
 ```graphql
 where: {
       volumeUSD_gte:20000
@@ -112,7 +111,7 @@ You should get the same JSON table as on TheGraph.
 
 
 ### Connecting the model through Google Sheet
-Once you confirmed that the query is functionning in Postman, you can transform the code into a Javascript Fetch request (for Google Sheet) using the Code button underneath the Save button.
+Once you confirmed that the query is functioning in Postman, you can transform the code into a Javascript Fetch request (for Google Sheet) using the Code button underneath the Save button.
 
 <img width="977" alt="javascript_postman" src="https://user-images.githubusercontent.com/53000607/133802683-9462b554-06f8-4d52-9533-35491102f006.png">
 
@@ -138,7 +137,7 @@ We want to have floating parameters in the function in order to filter new pairs
 * Minimum liquidity in USD threshold : [totalValueLockedUSD_gte]
 * Minimum number of transactions since creation date : [txCount_gte]
 
-Let's define an asynchroneous function with those 4 parameters as inputs
+Let's define an asynchronous function with those 4 parameters as inputs
 ```javascript
 async function UNISWAP(days,volume,liquidity,tx_count){
 }
@@ -231,14 +230,12 @@ A user-friendly interface that interacts with The Graph protocols using Google S
 4. Retrieve the latest pairs in the Sheet with a user-defined formula under your specific constraints
 
 
-## About me
-I gather cryptocurrency data to help users import and value their crypto portfolio in Google Sheets. I publish all of my work in [Medium](https://eloise88.medium.com/) and hope you can benefit from it. 
+## About the author
+Eloise gathers cryptocurrency data to help users import and value their crypto portfolio in Google Sheets. She publishes her work in [Medium](https://eloise88.medium.com/) and hopes you can benefit from it. 
 
-And for developers who wish to directly check my work on [Github](https://github.com/Eloise1988), I've built the [COINGECKO](https://github.com/Eloise1988/COINGECKO) repository for pricing as well as the [CRYPTOBALANCE](https://github.com/Eloise1988/CRYPTOBALANCE) repository for balances, staking, dex prices etc...
+And for developers who wish to directly check her work on [Github](https://github.com/Eloise1988), she built the [COINGECKO](https://github.com/Eloise1988/COINGECKO) repository for pricing as well as the [CRYPTOBALANCE](https://github.com/Eloise1988/CRYPTOBALANCE) repository for balances, staking, dex prices etc...
 
-If you find errors, please do not hesitate to let me know. Feedback is very welcomed. A [TELEGRAM chat](https://t.me/TheCryptoCurious) is also available for support. If this project adds any value to you and/or are looking for personalized coding on your Google Sheets, don’t hesitate to leave a message.
-
-Thank you so much for investing your time in reading this article. Take care of yourself & your family in these challenging times!
+Feedback is very welcomed. A [TELEGRAM chat](https://t.me/TheCryptoCurious) is also available for support. If this project adds any value to you and/or are looking for personalized coding on your Google Sheets, don’t hesitate to leave a message. Thank you so much for investing your time in reading this article. Take care of yourself & your family in these challenging times!
 
 ## References
 * https://github.com/Eloise1988/THEGRAPH
