@@ -18,6 +18,7 @@ For beginners with basic coding skills. This training assumes that you have a Gm
 [Uniswap](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work) is a **decentralized exchange protocol built on Ethereum.** To be more precise, it is an automated liquidity protocol. There is no order book or any centralized party required to make trades. Uniswap allows users to trade without intermediaries, with a high degree of decentralization and censorship-resistance.
 
 #### This is how Uniswap’s Decentralized Exchange looks like:
+
 [<img src=https://user-images.githubusercontent.com/53000607/132863640-4889463d-0e54-4a9e-b7ca-3a71017f8fc7.png width="450">](https://uniswap.exchange/swap)   <img src=https://user-images.githubusercontent.com/53000607/132863582-dd3c9ea6-e1e4-43f2-b42b-c27254631006.png width="550">    
 
 
@@ -34,7 +35,8 @@ In this tutorial, we will be focusing on getting blockchain data on Version 3 of
 #### Building the GraphQL query
 [GraphQL](https://en.wikipedia.org/wiki/GraphQL) is an **open-source data query and manipulation language for APIs,** and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015. 
 
-On TheGraph interface in playgroud mode, there is an example of a GraphQL query. This query gets the first 5 factories with id, poolCount, txCount and totalVolumeUSD, as well as the first 5 bundles with their id and ethPriceUSD. 
+On TheGraph interface in playgroud mode, there is an example of a GraphQL query. This query gets the first 5 factories with id, poolCount, txCount and totalVolumeUSD, as well as the first 5 bundles with their id and ethPriceUSD.
+
 <img width="660" alt="std_graph_query" src="https://user-images.githubusercontent.com/53000607/133599485-8dd9fa85-f20c-4c29-9f04-cd843d593511.png"> <img width="340" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
 
 For our purpose, we will just need to adjust a little the query to request pool pairs. We will be interested in filtering by constraints on the Number of Days the coin is active, the Volume ($), the Liquidity ($), and the number of Transactions. When you look at the pool parameters, you will find the following correspondence needed to build our constraints:
@@ -87,6 +89,7 @@ query{
   }}
 ```
 You can replace the example query with this new query and press play in the playground. You should see the results.
+
 [<img width="630" alt="thegraph_code" src="https://user-images.githubusercontent.com/53000607/132865391-1d131a43-7973-47d1-a182-a4fb5bfec97c.png">](https://thegraph.com/legacy-explorer/subgraph/uniswap/uniswap-v3)  <img width="370" alt="parameters_graph" src="https://user-images.githubusercontent.com/53000607/133599807-0d6c666f-5a02-44ca-a70c-fbf5e485fb64.png">
 
 ### Testing model & translating the query into javascript using Postman
@@ -96,6 +99,7 @@ You can replace the example query with this new query and press play in the play
 Once you download Postman, you can open a new window like shown below:
 
 <img width="1437" alt="postmanclean" src="https://user-images.githubusercontent.com/53000607/133645104-1099b76f-41cd-4637-94e9-79b965dcce92.png">
+
 To get the data in Postman, you will need to:
 1. Insert in the URL box the HTTP Query url from the Uniswap V3 subgraph (https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3)
 2. Change the GET into a POST request
@@ -103,6 +107,7 @@ To get the data in Postman, you will need to:
 4. Click Send
 
 You should get the same JSON table as on TheGraph.
+
 <img width="1100" alt="potman_query" src="https://user-images.githubusercontent.com/53000607/133658202-670210a1-4509-4754-a164-1e22514d4594.png">
 
 
@@ -180,9 +185,11 @@ Open a Google sheet where you wish to use the Uniswap function -> Go to **Tools 
 
 Replace the empty function with the code we just created.
 NB: I added the description of the function in the [Github raw code version 1.0](https://raw.githubusercontent.com/Eloise1988/datahub-learn/master/network-documentation/the-graph/uniswap_new_pairs.gs) 
+
 [<img width="900" alt="uniswapgs" src="https://user-images.githubusercontent.com/53000607/133931771-5a5d71a4-623f-4aa9-9ce5-6714d7e4a84f.png">](https://raw.githubusercontent.com/Eloise1988/datahub-learn/master/network-documentation/the-graph/uniswap_new_pairs.gs)
 
 Add the [ImportJSON script by Brad Jasper and Trevor Lohrbeer version 1.5](https://raw.githubusercontent.com/Eloise1988/ImportJSON/master/ImportJSON.gs)
+
 [<img width="900" alt="imporjson" src="https://user-images.githubusercontent.com/53000607/133931777-50713ca0-b096-474e-93f6-1d8e93a31441.png">](https://raw.githubusercontent.com/Eloise1988/ImportJSON/master/ImportJSON.gs)
 
 
