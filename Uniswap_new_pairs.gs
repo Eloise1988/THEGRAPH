@@ -1,3 +1,5 @@
+// Only for access to files in which the add-on or script is used, rather than all of a user's spreadsheets
+
 /**
 * @OnlyCurrentDoc
 */
