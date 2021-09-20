@@ -23,7 +23,9 @@
   ------------------------------------------------------------------------------------------------------------------------------------
   Changelog:
   
-  2.1.0   Creation Uniswap function  *====================================================================================================================================*/
+  2.1.0   Creation Uniswap function  
+*====================================================================================================================================*/
+
 /**UNISWAP
  * Returns new tradable pairs on Uniswap, giving constraints on the number of Days Active, the Volume ($), the Liquidity ($), the number of Transactions 
  *
@@ -52,6 +54,7 @@ async function UNISWAP(days,volume,liquidity,tx_count){
       query: "query{\n  \n  pools( where: {\n      volumeUSD_gte:"+String(volume)+"\n      totalValueLockedUSD_gte: "+String(liquidity)+"\n      txCount_gte:"+String(tx_count)+"\n      createdAtTimestamp_gte: "+String(unix_day)+"\n    } \n		) {\n  \n    token0 {\n      symbol\n    }\n    token0Price\n    token1 {\n      symbol\n    }\n    token1Price\n    id\n    volumeUSD\n    createdAtTimestamp\n    totalValueLockedUSD\n    txCount\n  }}",
         variables: {}
       })
+      
       // [3] Copy/Pasting the requestOptions variable from Postman javascript code
       var requestOptions = {
         method: 'POST',
@@ -65,4 +68,3 @@ async function UNISWAP(days,volume,liquidity,tx_count){
 
     
 }
-
